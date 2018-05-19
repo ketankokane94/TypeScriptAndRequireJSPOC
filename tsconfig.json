@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        //"sourceRoot": "./",
+        "allowJs": true,
+        "target": "es5",
+        "module": "amd",
+        "sourceMap": false,
+        "outDir": "./dist",
+        "removeComments": true,
+    
+    },
+    "include": [
+        "./*.ts"
+    ]
+}
