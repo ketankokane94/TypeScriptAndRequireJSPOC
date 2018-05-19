@@ -4,15 +4,15 @@ hello = function()
 console.log('Igonore : hello function is getting called on load');
 hello2();
 }
-var listOfValidators = ['./dist/MyValidator','./dist/YourValidator'];
+
 var hello2 = function()
-{
+{ 
     FetchAndExecuteValidators(ExecuteAfterValidators);   
 }
 
 var FetchAndExecuteValidators = function(callback)
 {       
-
+    //  getListOfValidator();
         for (var i = 0;i < listOfValidators.length;i++){
             require([listOfValidators[i]],function(myValidator ){
                 var validator = new myValidator.Validator();
@@ -22,8 +22,6 @@ var FetchAndExecuteValidators = function(callback)
         }    
 }
 
-
-var result = [];
 var ExecuteAfterValidators = function(actionHandlerResult)
 {
     result.push(actionHandlerResult);
@@ -34,10 +32,19 @@ var ExecuteAfterValidators = function(actionHandlerResult)
   
 }
 
+var getListOfValidator = function()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "https://my-json-server.typicode.com/ketankokane94/TypeScriptAndRequireJSPOC/validators", true);
+  xhttp.send();
+  xhttp.onload = function()
+  {
+    console.log(JSON.stringify(xhttp.responseText));
+  }
+}
 
-
-
-
+var result = [];
+var listOfValidators = ['./dist/MyValidator','./dist/YourValidator'];
 var request = 
 {
     "workflowInstanceStatus":"active",
