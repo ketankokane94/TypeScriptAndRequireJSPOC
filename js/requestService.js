@@ -6,7 +6,7 @@ hello2();
 
 // Hello Two is supposed to return ActionHandlerResult
 }
-var listOfValidators = ['./dist/MyValidator','./dist/YourValidator'];
+var listOfValidators = ['./MyValidator','./YourValidator'];
 var hello2 = function()
 { 
     FetchAndExecuteValidators(ExecuteAfterValidators);   
@@ -34,16 +34,7 @@ var ExecuteAfterValidators = function(actionHandlerResult)
   
 }
 
-var getListOfValidator = function()
-{
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "https://my-json-server.typicode.com/ketankokane94/TypeScriptAndRequireJSPOC/validators", true);
-  xhttp.send();
-  xhttp.onload = function()
-  {
-    console.log(JSON.stringify(xhttp.responseText));
-  }
-}
+
 
 var result = [];
 

@@ -1,14 +1,15 @@
 <html>
     <head>
-    <script src="requestService.js"></script>
-    <script src="requestData.js"></script>
-    <script data-main= "requireconfig" src="require.js"></script>
+    <script src="./js/requestData.js"></script>
+    <script src="./js/helperFunctions.js"></script>
+    <script src="./js/requestService.js"></script>
+    <script data-main= "./js/requireconfig" src="./js/require.js"></script>
 
         <title>Sample "Hello, World" Application</title>
     </head>
-    <body onload="saveRequest()">
+    <body>
   <!-- later add a button click -->
-  <input type="button" onclick="saveRequest()" />
+  <input type="button" value="save request" onclick="saveRequest()" />
 <p>hello</p>
     </body>
   </html>
