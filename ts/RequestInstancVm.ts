@@ -15,17 +15,3 @@ export interface RequestInstanceVM {
   system_name: string;
   DTFID: string;
   }
-
-  // interface RootObject {
-  //   workflowInstanceStatus: string;
-  //   originator: string;
-  //   instanceFields: InstanceFields;
-  //   favoriteNumber: number;
-  //   favoriteWord: string;
-  // }
-  
-  // interface InstanceFields {
-  //   Key: string;
-  //   Value: Value[];
-  // }
- 
