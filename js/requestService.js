@@ -1,13 +1,25 @@
 var result = [];
 
-saveRequest = function(){
-    FetchAndExecuteValidators().then(function(result){
-        console.error(result);
-        //Process Handler Result
-        getListOfValidator().then((result)=> {
-            console.log(result);
-        });
+save = function() {
+
+    saveRequest().then(function(finalActionHandlerResult){
+        console.log(finalActionHandlerResult);
     });
+
+};
+
+saveRequest = function(){
+    return new Promise((resolve)=> {
+        FetchAndExecuteValidators().then(function(result1){
+            //console.error(result);
+            // TODO: rename the below functio   n,  Process Handler Result
+            getListOfValidator().then((result1)=> {
+                //console.log(result1);
+                resolve(result1);
+
+            });
+        });
+});  
 };
 
 
