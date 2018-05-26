@@ -1,24 +1,31 @@
+var result = [];
 
 saveRequest = function(){
-    var result = [];
-    FetchAndExecuteValidators(ProcessHandlerResult);   
-
-}
-
-var FetchAndExecuteValidators = function(callback){        
-var listOfValidators = ['./MyValidator','./YourValidator'];  
-//  getListOfValidator();
-    for (var i = 0;i < listOfValidators.length;i++){
-        require([listOfValidators[i]],function(myValidator ){
-            var validator = new myValidator.Validator();
-            actionHandlerResult = validator.Validate(request);
-            callback(actionHandlerResult);
+    FetchAndExecuteValidators().then(function(result){
+        console.error(result);
+        //Process Handler Result
+        getListOfValidator().then((result)=> {
+            console.log(result);
         });
-    }    
-}
+    });
+};
 
-var ProcessHandlerResult = function(actionHandlerResult){
-    var result = [];
+
+var FetchAndExecuteValidators = function(){  
+    return new Promise ((resolve,reject) =>{
+        var listOfValidators = ['./MyValidator','./YourValidator'];  
+        for (var i = 0;i < listOfValidators.length;i++){
+            require([listOfValidators[i]],function(myValidator){
+                var validator = new myValidator.Validator();
+                actionHandlerResult = validator.Validate(request);
+                ProcessHandlerResult(actionHandlerResult,resolve);
+            });
+        };
+    });
+};
+
+var ProcessHandlerResult = function(actionHandlerResult,resolve){    
     result.push(JSON.stringify(actionHandlerResult));  
-    console.log(result);     
-}
+    if (result.length % 2 === 0)
+    resolve(result);
+};
