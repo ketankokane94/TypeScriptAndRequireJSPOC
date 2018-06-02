@@ -25,7 +25,7 @@ saveRequest = function(){
 
 var FetchAndExecuteValidators = function(){  
     return new Promise ((resolve,reject) =>{
-        var listOfValidators = ['./MyValidator','./YourValidator'];  
+        var listOfValidators = ['dist/MyValidator','dist/YourValidator'];  
         for (var i = 0;i < listOfValidators.length;i++){
             require([listOfValidators[i]],function(myValidator){
                 var validator = new myValidator.Validator();

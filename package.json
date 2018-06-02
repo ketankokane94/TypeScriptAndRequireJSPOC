@@ -1,7 +1,14 @@
 {
-  "name": "",
+  "name": "typescript",
   "version": "",
-  "devDependencies": {
+  "scripts": {
+    "nodemon": "tsc && nodemon ./server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
     "requirejs": "2.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
   }
 }
